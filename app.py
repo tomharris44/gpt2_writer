@@ -1,5 +1,5 @@
 
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 app = Flask(__name__)
 import os, psycopg2, requests
 
@@ -16,9 +16,22 @@ def index():
 
     cur.execute("SELECT * FROM text_output;")
 
-    text_output = cur.fetchone()    
+    text_output = cur.fetchall()
 
-    return jsonify(text_output)
+    return jsonify(text_output[-1])
+
+@app.route('/add_record', methods=['POST'])
+def add():
+
+    data = request.get_json()
+
+    author = data.get('author')
+
+    text = data.get('text')
+
+    cur.execute(f"INSERT INTO text_output (author, text) VALUES ({author}, {text});")
+
+    return "Success"
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
