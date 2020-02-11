@@ -14,9 +14,11 @@ cur = conn.cursor()
 @app.route('/get_latest')
 def index():
 
-    text = cur.execute("SELECT * FROM text_output;")    
+    cur.execute("SELECT * FROM text_output;")
 
-    return jsonify(text)
+    text_output = cur.fetchone()    
+
+    return jsonify(text_output)
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
