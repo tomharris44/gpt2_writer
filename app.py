@@ -29,9 +29,12 @@ def add():
 
     text = data.get('text')
 
-    cur.execute(f"""INSERT INTO text_output (author, text) VALUES ('{author}', '{text}');""")
+    sql_statement = f"""INSERT INTO text_output (author, text) VALUES ('{author}', '{text}');"""
 
-    return author + ' ' + text
+
+    cur.execute(sql_statement)
+
+    return sql_statement
 
 if __name__ == '__main__':
     # Threaded option to enable multiple instances for multiple user access support
