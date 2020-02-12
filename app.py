@@ -6,7 +6,7 @@ import os, psycopg2, requests
 
 DATABASE_URL = os.environ['DATABASE_URL']
 
-conn = psycopg2.connect(DATABASE_URL, sslmode='require')
+conn = psycopg2.connect(DATABASE_URL, sslmode='require', autocommit=True)
 
 cur = conn.cursor()
 
@@ -33,9 +33,7 @@ def add():
 
 
     cur.execute(sql_statement)
-
-    conn.commit()
-
+    
     return sql_statement
 
 if __name__ == '__main__':
