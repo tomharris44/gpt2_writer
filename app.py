@@ -29,7 +29,7 @@ def add():
 
     text = data.get('text')
 
-    cur.execute(f"""INSERT INTO text_output (author, text) VALUES ("{author}", "{text}");""")
+    cur.execute(f"""INSERT INTO text_output (author, text) VALUES ('{author}', '{text}');""")
 
     return author + ' ' + text
 
