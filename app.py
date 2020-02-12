@@ -34,6 +34,8 @@ def add():
 
     cur.execute(sql_statement)
 
+    conn.commit()
+
     return sql_statement
 
 if __name__ == '__main__':
