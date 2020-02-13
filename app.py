@@ -30,7 +30,7 @@ def add():
 
     text = data.get('text')
 
-    sql_statement = f"""INSERT INTO text_output (author, text) VALUES ('{author}', '{text}');"""
+    sql_statement = f"""INSERT INTO text_output (author, text) VALUES ("{author}", "{text}");"""
 
 
     cur.execute(sql_statement)
