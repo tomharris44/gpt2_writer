@@ -16,6 +16,7 @@ def index():
 
     cur.execute("SELECT * FROM text_output;")
 
+
     text_output = cur.fetchall()
 
     return jsonify(text_output)
