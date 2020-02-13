@@ -18,7 +18,7 @@ def index():
 
     text_output = cur.fetchall()
 
-    return jsonify(text_output[-1])
+    return jsonify(text_output)
 
 @app.route('/add_record', methods=['POST'])
 def add():
