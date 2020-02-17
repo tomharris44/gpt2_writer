@@ -19,6 +19,11 @@ def index():
 
     text_output = cur.fetchall()
 
+    def sortFirst(val): 
+        return val[0]  
+
+    text_output = text_output.sort(key = sortFirst)
+
     return jsonify(text_output)
 
 @app.route('/add_record', methods=['POST'])
