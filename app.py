@@ -19,10 +19,7 @@ def index():
 
     text_output = cur.fetchall()
 
-    def sortFirst(val): 
-        return val[0]  
-
-    text_output = text_output.sort(key = sortFirst)
+    text_output = sorted(text_output, key=lambda x: x[0])
 
     return jsonify(text_output)
 
